@@ -10,8 +10,8 @@ This is a Weather App that allows you to check the latest weather information fo
 5. 
 ## How to Use
 1. Clone the repository.
-2. Install the required dependencies using npm install.
-3. Run the application using npm start.
+2. Install the required dependencies using `npm install`.
+3. Run the application using `npm start`.
 4. Click on a city card to view detailed weather information for that city.
 5. To go back to the main screen, click on the back arrow icon in the top-left corner of the detailed weather information page.
 6. To remove a city from the list, click on the close icon in the top-right corner of the city card.
