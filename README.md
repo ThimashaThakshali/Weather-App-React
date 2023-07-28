@@ -15,8 +15,7 @@ This is a Weather App that allows you to check the latest weather information fo
 4. Click on a city card to view detailed weather information for that city.
 5. To go back to the main screen, click on the back arrow icon in the top-left corner of the detailed weather information page.
 6. To remove a city from the list, click on the close icon in the top-right corner of the city card.
-
-   To build the Docker image, execute the following command in the project's root directory:
+7. To build the Docker image, execute the following command in the project's root directory:
 
 `docker build -t react-weather-app .`
 
