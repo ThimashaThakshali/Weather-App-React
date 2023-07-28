@@ -7,7 +7,7 @@ This is a Weather App that allows you to check the latest weather information fo
 2. Detailed weather information for a selected city.
 3. Cache mechanism to store data and reduce API calls.
 4. Compatible with the latest versions of Chrome, Firefox, and Safari browsers.
-5. 
+ 
 ## How to Use
 1. Clone the repository.
 2. Install the required dependencies using `npm install`.
