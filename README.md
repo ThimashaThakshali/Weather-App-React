@@ -18,7 +18,6 @@ This is a Weather App that allows you to check the latest weather information fo
 
    To build the Docker image, execute the following command in the project's root directory:
 
-```bash
 `docker build -t react-weather-app .`
 
 ## Running the Docker Container
@@ -37,3 +36,4 @@ HTML
 CSS
 JavaScript
 OpenWeatherMap API
+
