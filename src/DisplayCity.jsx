@@ -8,23 +8,15 @@ import weatherIcons from "./WeatherIcons";
 // This component receives the 'city' object and 'onBackClick' function as props
 // to show the detailed weather info and allow going back to the main screen.
 
-const DisplayCity = ({ city, onBackClick , WeatherData}) => {
+const DisplayCity = ({ city, onBackClick , WeatherData,weatherDataColors}) => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-  
-const weatherDataColors = ["#388ee7", "#6249cc", "#de944e", "#CCCC00", "#40b681", "#9c3a3a", "#660066", "#191970"];
-const defaultColor = weatherDataColors[Math.floor(Math.random() * 8)]; // Default color if there are more cities than colors
-
-  let backgroundColor = defaultColor;
 
  // findIndex() searches for the index of the first element in WeatherData that passes the test
   const indexInWeatherData = WeatherData.findIndex((item) => item.id === city.id);
 
-  // If the city exists in the WeatherData array and a valid color is available, use that color; otherwise, use the default color
-  if (indexInWeatherData !== -1 && indexInWeatherData < weatherDataColors.length) {
-    backgroundColor = weatherDataColors[indexInWeatherData];
-  };
+  let backgroundColor = weatherDataColors[indexInWeatherData];
   
   const date = new Date(city.dt * 1000).toLocaleDateString([], { month: "short", day: "numeric" });
   const time = new Date(city.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
