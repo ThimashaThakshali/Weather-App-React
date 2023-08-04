@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherApp.css";
-import CityWeather from "./CityWeather";
-import DisplayCity from "./DisplayCity";
+import CityWeather from "./components/CityWeather";
+import DisplayCity from "./components/DisplayCity";
 
 const apiKey = "f5178c482d6b31e2e8fa6af8bb150c79";
 const API_URL = "http://api.openweathermap.org/data/2.5/group";
