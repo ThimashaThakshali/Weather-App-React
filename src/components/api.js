@@ -2,7 +2,7 @@ import { API_BASE_URL, API_KEY, API_ENDPOINTS } from "../APIHelper";
 
 // Step 2: Fetch weather data using the OpenWeatherMap API
 // Function to fetch weather data for a list of city codes
-export const fetchWeatherData = async (cityCodes) => {
+const fetchWeatherData = async (cityCodes) => {
   try {
     const response = await fetch(
       `${API_BASE_URL}${API_ENDPOINTS.GET_CITIES}?id=${cityCodes.join(
@@ -17,9 +17,10 @@ export const fetchWeatherData = async (cityCodes) => {
     throw error;
   }
 };
+export { fetchWeatherData };
 
 // Function to fetch weather data for a single city
-export const fetchCityWeather = async (cityName) => {
+const fetchCityWeather = async (cityName) => {
   try {
     const response = await fetch(
       `${API_BASE_URL}${API_ENDPOINTS.GET_CITY}?q=${cityName}&appid=${API_KEY}`
@@ -32,3 +33,5 @@ export const fetchCityWeather = async (cityName) => {
     throw error;
   }
 };
+
+export { fetchCityWeather };
