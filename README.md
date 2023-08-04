@@ -11,11 +11,13 @@ This is a Weather App that allows you to check the latest weather information fo
 ## How to Use
 1. Clone the repository.
 2. Install the required dependencies using `npm install`.
-3. Run the application using `npm start`.
-4. Click on a city card to view detailed weather information for that city.
-5. To go back to the main screen, click on the back arrow icon in the top-left corner of the detailed weather information page.
-6. To remove a city from the list, click on the close icon in the top-right corner of the city card.
-7. To build the Docker image, execute the following command in the project's root directory:
+3. Set Up Environment: Create a .env file in the project root and set your OpenWeatherMap API key like this:
+`WEATHER_APP_API_KEY=your_api_key_here`
+4. Run the application using `npm start`.
+5. Click on a city card to view detailed weather information for that city.
+6. To go back to the main screen, click on the back arrow icon in the top-left corner of the detailed weather information page.
+7. To remove a city from the list, click on the close icon in the top-right corner of the city card.
+8. To build the Docker image, execute the following command in the project's root directory:
 
 `docker build -t react-weather-app .`
 
