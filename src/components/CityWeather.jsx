@@ -3,31 +3,24 @@ import AdditionalInfo from "./AdditionalInfo";
 import closeIcon from "../icons/closeIcon.png";
 import weatherIcons from "../utils/WeatherIcons";
 import TemperatureInfo from "./TemperatureInfo";
+import {
+  capitalizeFirstLetter,
+  formatTime,
+  formatShortDate,
+} from "../constants/constants";
 
 // CityWeather component displays weather information for a single city
 // This component receives the 'city' object and 'onRemoveCity' function as props
 // to show the weather details and allow removal of the city.
 
 const CityWeather = ({ city, onRemoveCity }) => {
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-  const date = new Date(city.dt * 1000).toLocaleDateString([], {
-    month: "short",
-    day: "numeric",
-  });
-  const time = new Date(city.dt * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const sunriseTime = new Date(city.sys.sunrise * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const sunsetTime = new Date(city.sys.sunset * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const date = formatShortDate(city.dt);
+
+  const time = formatTime(city.dt);
+
+  const sunriseTime = formatTime(city.sys.sunrise);
+
+  const sunsetTime = formatTime(city.sys.sunset);
 
   const weatherIconURL = weatherIcons[city.weather[0].main];
 

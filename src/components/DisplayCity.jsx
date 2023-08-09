@@ -3,38 +3,29 @@ import AdditionalInfo from "./AdditionalInfo";
 import backArrow from "../icons/backArrow.png";
 import weatherIcons from "../utils/WeatherIcons";
 import TemperatureInfo from "./TemperatureInfo";
+import {
+  capitalizeFirstLetter,
+  formatTime,
+  formatShortDate,
+} from "../constants/constants";
 
 // DisplayCity component shows detailed weather information for a selected city
 // This component receives the 'city' object and 'onBackClick' function as props
 // to show the detailed weather info and allow going back to the main screen.
 
 const DisplayCity = ({ city, onBackClick, WeatherData, weatherDataColors }) => {
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-
   const indexInWeatherData = WeatherData.findIndex(
     (item) => item.id === city.id
   );
 
   let backgroundColor = weatherDataColors[indexInWeatherData];
 
-  const date = new Date(city.dt * 1000).toLocaleDateString([], {
-    month: "short",
-    day: "numeric",
-  });
-  const time = new Date(city.dt * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const sunriseTime = new Date(city.sys.sunrise * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const sunsetTime = new Date(city.sys.sunset * 1000).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const date = formatShortDate(city.dt);
+
+  const time = formatTime(city.dt);
+
+  const sunriseTime = formatTime(city.sys.sunrise);
+  const sunsetTime = formatTime(city.sys.sunset);
 
   const weatherIconURL = weatherIcons[city.weather[0].main];
 
