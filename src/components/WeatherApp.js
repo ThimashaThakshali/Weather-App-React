@@ -15,6 +15,9 @@ const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [isCitySelected, setIsCitySelected] = useState(false);
+  const [weatherDataColors, setWeatherDataColors] = useState(
+    DEFAULT_WEATHER_DATA_COLORS
+  );
 
   // Function to handle click on a city card
   const handleCityClick = (city) => {
@@ -84,20 +87,6 @@ const WeatherApp = () => {
     }
   }, [cityCodes]);
 
-  const [weatherDataColors, setWeatherDataColors] = useState(
-    DEFAULT_WEATHER_DATA_COLORS
-  );
-
-  // Function to generate a random color
-  const getRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
-
   const createCityObject = (apiData) => {
     return {
       id: apiData.id,
@@ -127,6 +116,16 @@ const WeatherApp = () => {
       },
       dt: apiData.dt,
     };
+  };
+
+  // Function to generate a random color
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   };
 
   // Filter weatherData array to include only the required indices
