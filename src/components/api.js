@@ -11,6 +11,7 @@ const fetchWeatherData = async (cityCodes) => {
     );
 
     const weatherData = await response.json();
+
     return weatherData.list;
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -27,6 +28,7 @@ const fetchCityWeather = async (cityName) => {
     );
 
     const cityWeatherData = await response.json();
+
     return cityWeatherData;
   } catch (error) {
     console.error("Error fetching city weather:", error);

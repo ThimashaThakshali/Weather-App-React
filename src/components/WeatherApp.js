@@ -18,6 +18,7 @@ const WeatherApp = () => {
   const [weatherDataColors, setWeatherDataColors] = useState(
     DEFAULT_WEATHER_DATA_COLORS
   );
+
   // Function to handle click on a city card
   const handleCityClick = (city) => {
     setSelectedCity(city);
@@ -47,6 +48,7 @@ const WeatherApp = () => {
         const response = await fetch("./cities.json");
         const data = await response.json();
         const cityCodes = data.List.map((city) => city.CityCode);
+
         setCityCodes(cityCodes); // Update the 'cityCodes' state with the extracted codes
       } catch (error) {
         console.error("Error fetching cities.json:", error);
